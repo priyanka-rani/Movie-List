@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="com.example.pathaoltd.movielistsample.model.Movie"/>
+    </data>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -17,7 +22,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Name"
+            android:text="@{data.title}"
             android:textSize="18sp"
             android:layout_marginTop="5dp"
             android:textColor="@color/colorBlack"/>
@@ -25,8 +30,7 @@
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Year"
+            android:text="@{data.year}"
             android:layout_marginTop="5dp"/>
-
     </LinearLayout>
 </layout>
