@@ -78,7 +78,7 @@ class MainActivity : BaseActivity(), MovieListFetchListener{
     }
 
     fun searchMovieList(query: String?) {
-        callRetrofit(true).searchMovieList(query).enqueue(object : Callback<MovieListResponseModel> {
+        callRetrofit(false).searchMovieList(query).enqueue(object : Callback<MovieListResponseModel> {
             override fun onResponse(call: Call<MovieListResponseModel>, response: Response<MovieListResponseModel>) {
                 try {
                     dismissProgressDialog()
