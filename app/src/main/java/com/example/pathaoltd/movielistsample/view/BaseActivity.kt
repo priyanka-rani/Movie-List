@@ -1,18 +1,15 @@
 package com.example.pathaoltd.movielistsample.view
 
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import com.example.pathaoltd.movielistsample.R
-import com.example.pathaoltd.movielistsample.databinding.ActivityMainBinding
-import com.google.gson.Gson
-import android.support.design.widget.Snackbar
-import android.widget.Toast
-import com.example.pathaoltd.movielistsample.network.ApiClient
-import com.example.pathaoltd.movielistsample.network.ApiInterface
 import android.app.ProgressDialog
+import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import com.example.pathaoltd.movielistsample.R
+import com.example.pathaoltd.movielistsample.network.ApiClient
+import com.example.pathaoltd.movielistsample.network.ApiInterface
 import com.example.pathaoltd.movielistsample.util.Utils
 
 
@@ -49,13 +46,13 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun callRetrofit(showProgress: Boolean): ApiInterface {
-        Utils.hideKeyboard(this)
+//        Utils.hideKeyboard(this)
         if (showProgress) showProgressDialog(true)
         return ApiClient().callRetrofit(this@BaseActivity)
     }
 
 
-    fun showProgressDialog(isCancelable: Boolean) {
+    open fun showProgressDialog(isCancelable: Boolean) {
         showProgressDialog(getString(R.string.loading), isCancelable)
     }
 
@@ -71,7 +68,7 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun dismissProgressDialog() {
+    open fun dismissProgressDialog() {
         try {
             pDialog!!.dismiss()
         } catch (e: Exception) {

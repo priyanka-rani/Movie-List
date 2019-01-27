@@ -3,6 +3,8 @@ package com.example.pathaoltd.movielistsample.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -29,6 +31,11 @@ public class Utils {
         tv.setTextColor(Color.WHITE);
         view.setBackgroundColor(ContextCompat.getColor(parentView.getContext(), R.color.colorRed));
         sb.show();
+    }
+    public static boolean isOnline(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+        return (netInfo != null && netInfo.isConnected());
     }
 
 }

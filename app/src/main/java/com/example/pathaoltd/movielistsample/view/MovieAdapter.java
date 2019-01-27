@@ -6,13 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.example.pathaoltd.movielistsample.R;
-import com.example.pathaoltd.movielistsample.databinding.ItemMainBinding;
 import com.example.pathaoltd.movielistsample.databinding.ItemMovieBinding;
 import com.example.pathaoltd.movielistsample.model.Movie;
 import com.example.pathaoltd.movielistsample.network.ApiUtils;
 import com.example.pathaoltd.movielistsample.util.MovieListFetchListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,8 +40,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         binding.setData(movie);
         String url = ApiUtils.IMAGE_BASE_URL+movie.getBackdropPath();
 
-        Glide.with(context)
-                .load(url)
+        Picasso.get().load(url)
                 .into(binding.ivThumb);
     }
 
