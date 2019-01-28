@@ -31,7 +31,6 @@
                 android:layout_width="@dimen/thumb_width"
                 android:layout_height="wrap_content"
                 android:text="@{data.title}"
-                android:lines="4"
                 android:textColor="@color/colorBlack" />
 
             <TextView
