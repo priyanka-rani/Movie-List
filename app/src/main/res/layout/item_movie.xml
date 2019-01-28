@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="data"
-            type="com.example.pathaoltd.movielistsample.model.Movie"/>
+            type="com.example.pathaoltd.movielistsample.model.Movie" />
     </data>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginRight="8dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/ivThumb"
-            android:layout_width="@dimen/thumb_width"
-            android:layout_height="@dimen/thumb_height"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"/>
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvName"
-            android:layout_width="@dimen/thumb_width"
-            android:layout_height="wrap_content"
-            android:text="@{data.title}"
-            android:textColor="@color/colorBlack"/>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/tvYear"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{data.year}"
-            android:layout_marginTop="5dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivThumb"
+                android:layout_width="@dimen/thumb_width"
+                android:layout_height="@dimen/thumb_height"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="@dimen/thumb_width"
+                android:layout_height="wrap_content"
+                android:text="@{data.title}"
+                android:textColor="@color/colorBlack" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{data.year}" />
+        </LinearLayout>
     </LinearLayout>
 </layout>

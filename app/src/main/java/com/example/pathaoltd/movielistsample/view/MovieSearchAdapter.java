@@ -33,7 +33,6 @@ public class MovieSearchAdapter extends RecyclerView.Adapter<MovieSearchAdapter.
         Movie movie = data.get(position);
         binding.setData(movie);
         String url = ApiUtils.IMAGE_BASE_URL + movie.getBackdropPath();
-
         Picasso.get().load(url).into(binding.ivThumb);
     }
 

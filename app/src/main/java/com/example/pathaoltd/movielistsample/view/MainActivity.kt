@@ -25,6 +25,8 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 
+
+
 class MainActivity : BaseActivity(), MovieListFetchListener {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,7 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
         binding = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
         setSupportActionBar(binding.toolbar)
         loadMovieList()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -90,9 +93,9 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
 
     private fun loadMovieList() {
         val movieListList: ArrayList<MovieListViewModel> = ArrayList()
-        movieListList.add(MovieListViewModel("TOP RATED", ApiUtils.TOP_RATED, 1, ArrayList<Movie>()))
-        movieListList.add(MovieListViewModel("NOW PLAYING", ApiUtils.NOW_PLAYING, 1, ArrayList<Movie>()))
-        movieListList.add(MovieListViewModel("UPCOMING", ApiUtils.UPCOMING, 1, ArrayList<Movie>()))
+        movieListList.add(MovieListViewModel("TOP RATED", ApiUtils.TOP_RATED))
+        movieListList.add(MovieListViewModel("NOW PLAYING", ApiUtils.NOW_PLAYING))
+        movieListList.add(MovieListViewModel("UPCOMING", ApiUtils.UPCOMING))
 
         val adapter = MovieListAdapter(this@MainActivity, movieListList)
         binding.rvAlbumList.adapter = adapter
@@ -100,14 +103,15 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
     }
 
     override fun onMovieListFetched(endPoint: String?, page: Int, listLoadedListener: MovieListLoadedListener?) {
-        callRetrofit(true).getMovieList(endPoint, page).enqueue(object : Callback<MovieListResponseModel> {
+        callRetrofit(page ==1).getMovieList(endPoint, page).enqueue(object :
+                Callback<MovieListResponseModel> {
             override fun onResponse(call: Call<MovieListResponseModel>, response: Response<MovieListResponseModel>) {
                 try {
                     dismissProgressDialog()
                     val responseModel: MovieListResponseModel = response.body()!!
                     val movieList: List<Movie> = responseModel.movieList
                     if (movieList != null && movieList.size > 0) {
-                        listLoadedListener!!.onMovieListLoaded(movieList)
+                        listLoadedListener!!.onMovieListLoaded(responseModel)
                     } else {
                         showErrorSnack(response.message())
                     }

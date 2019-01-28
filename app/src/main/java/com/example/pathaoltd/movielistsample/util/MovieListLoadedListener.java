@@ -1,9 +1,7 @@
 package com.example.pathaoltd.movielistsample.util;
 
-import com.example.pathaoltd.movielistsample.model.Movie;
-
-import java.util.List;
+import com.example.pathaoltd.movielistsample.model.MovieListResponseModel;
 
 public interface MovieListLoadedListener {
-    void onMovieListLoaded(List<Movie> movieList);
+    void onMovieListLoaded(MovieListResponseModel movieListResponse);
 }
