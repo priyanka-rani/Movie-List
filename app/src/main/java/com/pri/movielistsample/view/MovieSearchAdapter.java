@@ -1,14 +1,14 @@
-package com.example.pathaoltd.movielistsample.view;
+package com.pri.movielistsample.view;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.example.pathaoltd.movielistsample.R;
-import com.example.pathaoltd.movielistsample.databinding.ItemSearchBinding;
-import com.example.pathaoltd.movielistsample.model.Movie;
-import com.example.pathaoltd.movielistsample.network.ApiUtils;
+import com.pri.movielistsample.R;
+import com.pri.movielistsample.databinding.ItemSearchBinding;
+import com.pri.movielistsample.model.Movie;
+import com.pri.movielistsample.network.ApiUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

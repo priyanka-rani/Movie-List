@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.model;
+package com.pri.movielistsample.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

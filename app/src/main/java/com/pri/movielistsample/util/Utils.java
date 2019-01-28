@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.util;
+package com.pri.movielistsample.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import com.example.pathaoltd.movielistsample.R;
+import com.pri.movielistsample.R;
 
 public class Utils {
     public static void hideKeyboard(Activity activity) {

@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.view;
+package com.pri.movielistsample.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Handler;
@@ -8,14 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.example.pathaoltd.movielistsample.R;
-import com.example.pathaoltd.movielistsample.databinding.ItemMovieBinding;
-import com.example.pathaoltd.movielistsample.model.Movie;
-import com.example.pathaoltd.movielistsample.model.MovieListResponseModel;
-import com.example.pathaoltd.movielistsample.network.ApiUtils;
-import com.example.pathaoltd.movielistsample.util.MovieListFetchListener;
-import com.example.pathaoltd.movielistsample.util.MovieListLoadedListener;
-import com.example.pathaoltd.movielistsample.viewmodel.MovieListViewModel;
+import com.pri.movielistsample.R;
+import com.pri.movielistsample.databinding.ItemMovieBinding;
+import com.pri.movielistsample.model.Movie;
+import com.pri.movielistsample.model.MovieListResponseModel;
+import com.pri.movielistsample.network.ApiUtils;
+import com.pri.movielistsample.util.MovieListFetchListener;
+import com.pri.movielistsample.util.MovieListLoadedListener;
+import com.pri.movielistsample.viewmodel.MovieListViewModel;
 import com.squareup.picasso.Picasso;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
@@ -79,7 +79,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
                 int totalItemCount = linearLayoutManager.getItemCount();
                 int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
-                if (!isLoading && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
+                if (!isLoading && totalItemCount <= (lastVisibleItem + visibleThreshold) && curPage < data.getTotalPage()) {
                     if (listener != null) {
                         isLoading = true;
                         listener.onMovieListFetched(data.getEndPointUrl(), ++curPage, new MovieListLoadedListener() {

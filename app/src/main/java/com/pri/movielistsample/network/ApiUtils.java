@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.network;
+package com.pri.movielistsample.network;
 
 public class ApiUtils {
 

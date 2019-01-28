@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.view
+package com.pri.movielistsample.view
 
 import android.app.SearchManager
 import android.content.Context
@@ -9,22 +9,20 @@ import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.example.pathaoltd.movielistsample.R
-import com.example.pathaoltd.movielistsample.databinding.ActivityMainBinding
-import com.example.pathaoltd.movielistsample.model.Movie
-import com.example.pathaoltd.movielistsample.model.MovieListResponseModel
-import com.example.pathaoltd.movielistsample.network.ApiUtils
-import com.example.pathaoltd.movielistsample.util.MovieListFetchListener
-import com.example.pathaoltd.movielistsample.util.MovieListLoadedListener
-import com.example.pathaoltd.movielistsample.util.Utils
-import com.example.pathaoltd.movielistsample.viewmodel.MovieListViewModel
+import com.pri.movielistsample.R
+import com.pri.movielistsample.databinding.ActivityMainBinding
+import com.pri.movielistsample.model.Movie
+import com.pri.movielistsample.model.MovieListResponseModel
+import com.pri.movielistsample.network.ApiUtils
+import com.pri.movielistsample.util.MovieListFetchListener
+import com.pri.movielistsample.util.MovieListLoadedListener
+import com.pri.movielistsample.util.Utils
+import com.pri.movielistsample.viewmodel.MovieListViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 import kotlin.concurrent.schedule
-
-
 
 
 class MainActivity : BaseActivity(), MovieListFetchListener {
@@ -71,10 +69,10 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 timer.cancel()
-                val sleep = when(newText.length) {
+                val sleep = when (newText.length) {
                     1 -> 1000L
-                    2,3 -> 700L
-                    4,5 -> 500L
+                    2, 3 -> 700L
+                    4, 5 -> 500L
                     else -> 300L
                 }
                 timer = Timer()
@@ -87,6 +85,7 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
                 return true
             }
         })
+        searchView.queryHint = getString(R.string.search_title)
 
         return true
     }
@@ -103,7 +102,7 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
     }
 
     override fun onMovieListFetched(endPoint: String?, page: Int, listLoadedListener: MovieListLoadedListener?) {
-        callRetrofit(page ==1).getMovieList(endPoint, page).enqueue(object :
+        callRetrofit(page == 1).getMovieList(endPoint, page).enqueue(object :
                 Callback<MovieListResponseModel> {
             override fun onResponse(call: Call<MovieListResponseModel>, response: Response<MovieListResponseModel>) {
                 try {
@@ -122,25 +121,26 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
 
             override fun onFailure(call: Call<MovieListResponseModel>, t: Throwable) {
                 dismissProgressDialog()
-                if(Utils.isOnline(this@MainActivity))
+                if (Utils.isOnline(this@MainActivity))
                     showErrorSnack(t.message!!)
-                else{
+                else {
                     showErrorSnack(getString(R.string.no_internet))
                 }
             }
         })
 
     }
+
     fun searchMovieList(query: String?) {
         callRetrofit(true).searchMovieList(query).enqueue(object : Callback<MovieListResponseModel> {
             override fun onResponse(call: Call<MovieListResponseModel>, response: Response<MovieListResponseModel>) {
                 try {
                     dismissProgressDialog()
-                    val responseModel:MovieListResponseModel= response.body()!!
-                    val movieList:List<Movie> = responseModel.movieList
+                    val responseModel: MovieListResponseModel = response.body()!!
+                    val movieList: List<Movie> = responseModel.movieList
                     if (movieList != null && movieList.size > 0) {
 //                        listLoadedListener!!.onMovieListLoaded(movieList)
-                        val adapter:MovieSearchAdapter = MovieSearchAdapter(movieList)
+                        val adapter: MovieSearchAdapter = MovieSearchAdapter(movieList)
                         binding.rvSearchList.adapter = adapter
                         binding.rvSearchList.visibility = View.VISIBLE
 
@@ -154,9 +154,9 @@ class MainActivity : BaseActivity(), MovieListFetchListener {
 
             override fun onFailure(call: Call<MovieListResponseModel>, t: Throwable) {
                 dismissProgressDialog()
-                if(Utils.isOnline(this@MainActivity))
-                showErrorSnack(t.message!!)
-                else{
+                if (Utils.isOnline(this@MainActivity))
+                    showErrorSnack(t.message!!)
+                else {
                     showErrorSnack(getString(R.string.no_internet))
                 }
             }

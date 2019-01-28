@@ -1,16 +1,16 @@
-package com.example.pathaoltd.movielistsample.view;
+package com.pri.movielistsample.view;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.example.pathaoltd.movielistsample.R;
-import com.example.pathaoltd.movielistsample.databinding.ItemMainBinding;
-import com.example.pathaoltd.movielistsample.model.MovieListResponseModel;
-import com.example.pathaoltd.movielistsample.util.MovieListFetchListener;
-import com.example.pathaoltd.movielistsample.util.MovieListLoadedListener;
-import com.example.pathaoltd.movielistsample.viewmodel.MovieListViewModel;
+import com.pri.movielistsample.R;
+import com.pri.movielistsample.databinding.ItemMainBinding;
+import com.pri.movielistsample.model.MovieListResponseModel;
+import com.pri.movielistsample.util.MovieListFetchListener;
+import com.pri.movielistsample.util.MovieListLoadedListener;
+import com.pri.movielistsample.viewmodel.MovieListViewModel;
 
 import java.util.List;
 

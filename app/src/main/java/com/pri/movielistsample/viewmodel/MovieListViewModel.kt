@@ -1,6 +1,6 @@
-package com.example.pathaoltd.movielistsample.viewmodel
+package com.pri.movielistsample.viewmodel
 
-import com.example.pathaoltd.movielistsample.model.Movie
+import com.pri.movielistsample.model.Movie
 
 
 class MovieListViewModel(var title: String, var endPointUrl: String){

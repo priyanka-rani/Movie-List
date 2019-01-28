@@ -1,4 +1,4 @@
-package com.example.pathaoltd.movielistsample.view
+package com.pri.movielistsample.view
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import com.example.pathaoltd.movielistsample.R
-import com.example.pathaoltd.movielistsample.network.ApiClient
-import com.example.pathaoltd.movielistsample.network.ApiInterface
-import com.example.pathaoltd.movielistsample.util.Utils
+import com.pri.movielistsample.R
+import com.pri.movielistsample.network.ApiClient
+import com.pri.movielistsample.network.ApiInterface
+import com.pri.movielistsample.util.Utils
 
 
 open class BaseActivity : AppCompatActivity() {

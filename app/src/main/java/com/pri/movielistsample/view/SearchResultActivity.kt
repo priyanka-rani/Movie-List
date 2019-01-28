@@ -1,14 +1,14 @@
-package com.example.pathaoltd.movielistsample.view
+package com.pri.movielistsample.view
 
 import android.app.SearchManager
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
-import com.example.pathaoltd.movielistsample.R
-import com.example.pathaoltd.movielistsample.databinding.ActivitySearchBinding
-import com.example.pathaoltd.movielistsample.model.Movie
-import com.example.pathaoltd.movielistsample.model.MovieListResponseModel
+import com.pri.movielistsample.R
+import com.pri.movielistsample.databinding.ActivitySearchBinding
+import com.pri.movielistsample.model.Movie
+import com.pri.movielistsample.model.MovieListResponseModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

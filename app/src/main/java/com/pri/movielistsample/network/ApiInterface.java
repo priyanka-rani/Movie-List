@@ -1,6 +1,6 @@
-package com.example.pathaoltd.movielistsample.network;
+package com.pri.movielistsample.network;
 
-import com.example.pathaoltd.movielistsample.model.MovieListResponseModel;
+import com.pri.movielistsample.model.MovieListResponseModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

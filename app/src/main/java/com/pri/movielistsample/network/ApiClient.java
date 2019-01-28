@@ -1,8 +1,8 @@
-package com.example.pathaoltd.movielistsample.network;
+package com.pri.movielistsample.network;
 
 import android.content.Context;
 
-import com.example.pathaoltd.movielistsample.util.Utils;
+import com.pri.movielistsample.util.Utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

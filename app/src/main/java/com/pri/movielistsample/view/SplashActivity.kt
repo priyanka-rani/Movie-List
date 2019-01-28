@@ -1,13 +1,10 @@
-package com.example.pathaoltd.movielistsample.view
+package com.pri.movielistsample.view
 
-import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.pathaoltd.movielistsample.R
-import com.example.pathaoltd.movielistsample.databinding.ActivityMainBinding
+import com.pri.movielistsample.R
 import android.content.Intent
-import android.preference.PreferenceDataStore
 
 
 class SplashActivity : AppCompatActivity() {
